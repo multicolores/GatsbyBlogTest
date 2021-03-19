@@ -32,30 +32,56 @@ const BlogIndex = ({ data, location }) => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
+            <div key={post.fields.slug}>
+              {post.fields.slug.indexOf("Blog2") > 0 ? (
+                <article>
+                  <header>
+                    <h1>title: {post.frontmatter.title} slug: {post.fields.slug}</h1>
+                    <p className="post-meta">
+                      <span className="subtitle is-size-5 is-block">
+                        {post.frontmatter.date}
+                        {post.frontmatter.description}
+                      </span>
+                    </p>
+                  </header>
+                  <p>
+                    {post.excerpt}
+                    <br />
+                    <br />
+                    {post.fields.slug === "Blog2" ? "oui" : "non"}
+                    {post.fields.slug.indexOf("Blog2") > 0 ? "oui" : "non"}
+                  </p>
+                </article>
+
+              ) : null}
+            </div>
+
+            
+            // <li key={post.fields.slug}>
+            //   <article
+            //     className="post-list-item"
+            //     itemScope
+            //     itemType="http://schema.org/Article"
+            //   >
+                
+            //     <header>
+            //       <h2>
+            //         <Link to={post.fields.slug} itemProp="url">
+            //           <span itemProp="headline">{title}</span>
+            //         </Link>
+            //       </h2>
+            //       <small>{post.frontmatter.date}</small>
+            //     </header>
+            //     <section>
+            //       <p
+            //         dangerouslySetInnerHTML={{
+            //           __html: post.frontmatter.description || post.excerpt,
+            //         }}
+            //         itemProp="description"
+            //       />
+            //     </section>
+            //   </article>
+            // </li>
           )
         })}
       </ol>

@@ -9,8 +9,21 @@ collections:
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
-    creat: true
+    create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog2"
+    label: "Blog2"
+    folder: "content/blog2"
+    create: true
+    slug: "blog2"
     editor:
       preview: true
     fields:
