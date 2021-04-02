@@ -4,6 +4,8 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "../components/image"
+import "../components/styles.scss"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -33,37 +35,47 @@ const BlogIndex = ({ data, location }) => {
 
           return (
             <div key={post.fields.slug}>
-              {post.fields.slug.indexOf("Blog2") > 0 ? (
-                <article>
-                  <header>
-                    <h1>title: {post.frontmatter.title} slug: {post.fields.slug}</h1>
-                    <p className="post-meta">
-                      <span className="subtitle is-size-5 is-block">
-                        {post.frontmatter.date}
-                        {post.frontmatter.description}
-                      </span>
-                    </p>
-                  </header>
+              <article>
+                <div className="blogpost_text">
+                  <Link to={post.fields.slug}
+                  >
+                    <h3>{post.frontmatter.title}</h3>
+
+                  </Link>
+                  <span>
+                    {post.frontmatter.date}
+                  </span>
+
                   <p>
                     {post.excerpt}
-                    <br />
-                    <br />
-                    {post.fields.slug === "Blog2" ? "oui" : "non"}
-                    {post.fields.slug.indexOf("Blog2") > 0 ? "oui" : "non"}
                   </p>
-                </article>
+                  <span>Image : {post.frontmatter.featuredimage}</span>
 
-              ) : null}
+                  {post.frontmatter.featuredimage ? (
+                    <div className="post-image">
+
+                      <img src={post.frontmatter.featuredimage} alt="" />
+                      <Image alt="image d'accueil" filename={post.frontmatter.featuredimage} />
+
+                    </div>
+                  ) : null}
+                  {/* <Link className="button" to={post.fields.slug}>
+                    Keep Reading
+                  </Link> */}
+
+                </div>
+              </article>
+
             </div>
 
-            
+
             // <li key={post.fields.slug}>
             //   <article
             //     className="post-list-item"
             //     itemScope
             //     itemType="http://schema.org/Article"
             //   >
-                
+
             //     <header>
             //       <h2>
             //         <Link to={post.fields.slug} itemProp="url">
