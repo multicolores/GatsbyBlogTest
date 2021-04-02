@@ -28,6 +28,9 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
+      <header>
+        <h1>Faire un blog</h1>
+      </header>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -49,16 +52,15 @@ const BlogIndex = ({ data, location }) => {
                   <p>
                     {post.excerpt}
                   </p>
-                  <span>Image : {post.frontmatter.featuredimage}</span>
 
-                  {post.frontmatter.featuredimage ? (
+                  {/* {post.frontmatter.featuredimage ? (
                     <div className="post-image">
 
                       <img src={post.frontmatter.featuredimage} alt="" />
                       <Image alt="image d'accueil" filename={post.frontmatter.featuredimage} />
 
                     </div>
-                  ) : null}
+                  ) : null} */}
                   {/* <Link className="button" to={post.fields.slug}>
                     Keep Reading
                   </Link> */}

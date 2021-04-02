@@ -108,26 +108,32 @@ nav{
     height: 10vh;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background: white;
     z-index: 3;
+    display: flex;
+    align-items: center;
+
+    a{
+        font-size: 3em;
+        position: absolute;
+        left: 5%;
+        span{
+            color: black;
+
+        }
+    }
     .container{
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        .navbar-logo{
-            a{
-                font-weight: bold;
-                font-size: 3em;
-            }
-        }
-        .navbar-links{
-            @media (max-width: 700px) {
-                display: none;
-            }
-            display: flex;
-            gap: 20px;
+        width: 1500px;
+        list-style: none;
+        a{
+            position: relative;
+            font-size: 1em;
         }
     }
 
@@ -339,15 +345,33 @@ footer{
 
 footer{
     text-align: end;
-    opacity: .6 ;
+    opacity: .6;
+    padding-top: 5px;
 }
 
 header{
-    padding: 5% 0;
+    padding: 0% 0;
 }
 
 .bio {
     p{
         padding-bottom: 5%;
+    }
+}
+
+.blog-post{
+    .header_blog-post{
+        margin-top: 20%;
+        p{
+            padding-bottom: 5%;
+        }
+    }
+    h2{
+        padding: 20px 0;
+        padding-top: 40px;
+    }
+    img{
+        width: 100%;
+        padding: 5% 0;
     }
 }
