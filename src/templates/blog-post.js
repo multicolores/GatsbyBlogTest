@@ -16,11 +16,34 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <nav className="blog-post-nav">
+      <div className="home">
         <Link to="/">
-          <span>Home</span>
+          <span>Blog</span>
         </Link>
-        <ul className="container">
+      </div>
+
+
+      <article
+        className="blog-post"
+        itemScope
+        itemType="http://schema.org/Article"
+      >
+        <div className="header_blog-post">
+          <h1 itemProp="headline">{post.frontmatter.title}</h1>
+          <p>{post.frontmatter.date}</p>
+        </div>
+        <section
+          dangerouslySetInnerHTML={{ __html: post.html }}
+          itemProp="articleBody"
+        />
+
+        <hr />
+
+      </article>
+
+      <nav className="blog-post-nav">
+
+        <ul>
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -37,24 +60,6 @@ const BlogPostTemplate = ({ data, location }) => {
           </li>
         </ul>
       </nav>
-
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <div className="header_blog-post">
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </div>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
-        <hr />
-
-      </article>
-
     </Layout>
   )
 }

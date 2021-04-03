@@ -33,7 +33,7 @@ const Bio = () => {
 
   return (
     <div className="bio">
-      <p>Blog créer par Florian TELLIER pour le theme 19 sur comment faire un blog</p>
+      <p>Blog créer par Florian TELLIER pour le thème 19 sur comment faire un blog </p>
       <Image alt="image d'accueil" filename="pexels-bruno-thethe-1910236.jpg" />
 
     </div>
