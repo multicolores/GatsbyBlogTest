@@ -70,6 +70,8 @@ span{
     position: relative;
     font-size: 1.3em;
     font-weight: bold;
+    display: inline-block;
+    margin-top: 20px;
     &::after{
         z-index: -1;
         content: '';

@@ -14,7 +14,7 @@ const BlogIndex = ({ data, location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="Blog" />
         <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="Blog" />
       <header>
         <h1>Faire un blog</h1>
       </header>
@@ -40,10 +40,8 @@ const BlogIndex = ({ data, location }) => {
             <div key={post.fields.slug}>
               <article>
                 <div className="blogpost_text">
-                  <Link to={post.fields.slug}
-                  >
+                  <Link to={post.fields.slug}>
                     <h3>{post.frontmatter.title}</h3>
-
                   </Link>
                   <span>
                     {post.frontmatter.date}
@@ -64,8 +62,13 @@ const BlogIndex = ({ data, location }) => {
                   {/* <Link className="button" to={post.fields.slug}>
                     Keep Reading
                   </Link> */}
-
+                  <div className="button">
+                    <Link to={post.fields.slug}>
+                      Voir le post
+                    </Link>
+                  </div>
                 </div>
+
               </article>
 
             </div>
